@@ -1,6 +1,6 @@
 # Blog
 Repository which contains the code of my blog posts and tutorials.
-- https://blog.tkssharma
+- https://blog.tkssharma.com
 - https://tkssharma.com/blog
 - https://medium.com/@tkssharma
 
