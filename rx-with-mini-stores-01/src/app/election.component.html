@@ -1,0 +1,11 @@
+<input #candidateName type="text" placeholder="Coffee name">
+<button (click)="store.addCandidate(candidateName.value); candidateName.value = ''">Add candidate</button>
+
+<h2>Coffee candidates</h2>
+<ul>
+  <li *ngFor="let candidate of (store.state$ | async).candidates">
+    <span>{{ candidate.name }}</span>
+    <span>Votes: {{ candidate.votes }}</span>
+    <button (click)="store.addVote(candidate)">+</button>
+  </li>
+</ul>

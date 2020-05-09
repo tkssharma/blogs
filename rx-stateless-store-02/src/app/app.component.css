@@ -1,0 +1,19 @@
+.container{
+  display: flex;
+}
+
+.block{
+  width: 50%;
+  padding: 20px;
+}
+
+.block:first-child {
+  border-right: 3px solid darkgray;
+}
+.block h1 {
+  text-align: center;
+}
+
+.block ul {
+  list-style-type: none;
+}

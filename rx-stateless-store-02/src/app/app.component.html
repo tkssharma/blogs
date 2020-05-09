@@ -1,0 +1,39 @@
+<div class="container">
+
+	<div class="block">
+		<h1>List of users</h1>
+		<ul *ngIf="userWithPost$ | async as userList">
+			<li *ngFor="let user of userList">
+				<a href="#" (click)="selectUser(user.id)">{{user.username}}</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="block">
+		<h1>User Information</h1>
+		<div *ngIf="selectedUser$ | async as selectedUser">
+			<div>
+				<span>Name:</span>
+				<span>{{selectedUser.name}}</span>
+			</div>
+			<div>
+				<span>Email:</span>
+				<span>{{selectedUser.email}}</span>
+			</div>
+			<div>
+				<span>phone:</span>
+				<span>{{selectedUser.phone}}</span>
+			</div>
+			<div>
+				<h2>POSTS</h2>
+				<ul>
+					<li *ngFor="let post of selectedUser.posts">
+						<a href="#">{{post.title}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+</div>
