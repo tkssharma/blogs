@@ -31,7 +31,7 @@ This backend is based on NestJS Framework V6 (https://nestjs.com/), This is API 
 - Swagger Module 
   
 
-## Env VARS: (create a .env file in root)
+## Env variables: (create a .env file in root)
 ```bash
 ENV=development
 DB_TYPE=mysql
@@ -54,10 +54,6 @@ cp env.example .env
 ```
 
 ```bash
-docker-compose up --build 
-```
-
-```bash
 services:
   node:
     build: .
@@ -68,25 +64,6 @@ services:
       ./.env
 ```      
 
-
-Server will be running on http://localhost:3000
-
-# Endpoints
-
-```bash
-node_1   | socket initialized
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RoutesResolver] AppController {/}: +726ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/, GET} route +6ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RoutesResolver] ContactsController {/contacts}: +3ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/, GET} route +4ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/:id, GET} route +3ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/, POST} route +4ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/bulk, POST} route +5ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/:id, PATCH} route +4ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/:id, DELETE} route +2ms
-node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [NestApplication] Nest application successfully started +7ms
-node_1   | SERVER IS RUNNING ON PORT 3000
-```
 
 ## Installation
 
@@ -108,14 +85,42 @@ $ npm install
 
 ```bash
 # development
+$ npm install 
 $ npm run build
-$ npm run debug
+$ docker-compose down; docker-compose build
 $ docker-compose up
 
-# watch mode
-$ npm run start
-
 ```
+
+
+Server will be running on http://localhost:3000
+
+## Endpoints
+
+```bash
+node_1   | socket initialized
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RoutesResolver] AppController {/}: +726ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/, GET} route +6ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RoutesResolver] ContactsController {/contacts}: +3ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/, GET} route +4ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/:id, GET} route +3ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/, POST} route +4ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/bulk, POST} route +5ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/:id, PATCH} route +4ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [RouterExplorer] Mapped {/:id, DELETE} route +2ms
+node_1   | [Nest] 48   - 04/06/2020, 1:39 PM   [NestApplication] Nest application successfully started +7ms
+node_1   | SERVER IS RUNNING ON PORT 3000
+```
+
+## Database sync 
+
+```bash
+docker exec -it typescript-nestjs-starterkit_node_1 bash
+npm run db:sync 
+```
+
+## API spec using swagger
+http://localhost:3000/api/
 
 ## Test
 
