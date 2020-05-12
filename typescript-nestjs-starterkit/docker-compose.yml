@@ -1,0 +1,21 @@
+version: "3"
+services:
+  node:
+    build: .
+    command: npm run debug
+    volumes:
+      - ./docker/node/node-docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
+      - .:/app
+    env_file:
+      ./.env
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data: {}
