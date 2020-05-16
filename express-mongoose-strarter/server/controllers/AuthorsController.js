@@ -1,12 +1,22 @@
 const { Author } = require('../models');
 
 const AuthorsController = {
-  async index(req, res){
+  async getAllAuthors(req, res, next){
+    try {
   	const authors = await Author.find().populate('books');
-  	res.send(authors);
+    res.send(authors);
+    }catch(err){
+      next(err)
+    }
   },
-  async store(req, res){
-
+  async createAuthor(req, res){
+     try {
+      const data = req.body;
+      const author = await Author.create(data);
+      res.send(author);
+     }catch(err){
+       next(err)
+     }
   },
   async show(req, res){
   	const author = await Author.findById(req.params.id);

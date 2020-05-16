@@ -9,6 +9,8 @@ import { Users } from '../interfaces/index';
   providedIn: 'root'
 })
 export class UsersService {
+  constructor(private http: HttpClient, private postsService: PostsService) { }
+
   private userSelectedAction = new Subject<number>();
   private usersUrl = 'https://jsonplaceholder.typicode.com/users';
   user$ = this.http.get<Users>(this.usersUrl).pipe(shareReplay());
@@ -28,8 +30,6 @@ export class UsersService {
   ).pipe(
     map( ([selectedUserId, users]) => users.find( user => user.id == selectedUserId))
   )
-
-  constructor(private http: HttpClient, private postsService: PostsService) { }
 
   changeSelectedUser(id) {
     this.userSelectedAction.next(id);

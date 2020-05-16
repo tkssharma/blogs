@@ -13,6 +13,9 @@ module.exports = {
   async createBook(req, res, next) {
     try {
       const book = req.body;
+      if (!ObjectID.isValid(book.author)) {
+        throw new Error('author object id not passed');
+      }
       const newBook = await Book.create(book);
       res.send(newBook);
     } catch (err) {

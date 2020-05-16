@@ -26,8 +26,8 @@ module.exports = function (app) {
 
   router
     .route('/authors')
-    .get((...params) => AuthorsController.index(...params))
-    .post((...params) => AuthorsController.store(...params));
+    .get((...params) => AuthorsController.getAllAuthors(...params))
+    .post((...params) => AuthorsController.createAuthor(...params));
 
   router
     .route('/authors')

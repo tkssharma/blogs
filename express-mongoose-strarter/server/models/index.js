@@ -2,5 +2,6 @@
 module.exports = {
 	'Author': require('./Author'),
   'Book': require('./Book'),
-  'Tag': require('./Tags')
+  'Tag': require('./Tags'),
+  'Blog': require('./Blog'),
 };
