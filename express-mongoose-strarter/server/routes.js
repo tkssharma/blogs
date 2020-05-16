@@ -6,8 +6,9 @@ const express = require('express'),
   {
     AuthorsController,
     HomeController,
-    AuthCtrl,
-    UserCtrl
+    TagCtrl,
+    UserCtrl,
+    BooksController
   } = require('./controllers');
 
 module.exports = function (app) {
@@ -17,22 +18,40 @@ module.exports = function (app) {
   router.route('/me').get((...params) => AuthCtrl.checkAuth(...params));
   router
     .route('/users')
-    .get(passport.authenticate(), (...params) => UserCtrl.list(...params));
+    .get((...params) => UserCtrl.list(...params));
   router
     .route('/users/:id')
-    .get(passport.authenticate(), (...params) => UserCtrl.getUser(...params))
-    .patch(passport.authenticate(), (...params) => UserCtrl.update(...params));
+    .get((...params) => UserCtrl.getUser(...params))
+    .patch((...params) => UserCtrl.update(...params));
 
   router
     .route('/authors')
-    .get(passport.authenticate(), (...params) => AuthorsController.index(...params))
-    .post(passport.authenticate(), (...params) => AuthorsController.store(...params));
+    .get((...params) => AuthorsController.index(...params))
+    .post((...params) => AuthorsController.store(...params));
 
   router
     .route('/authors')
-    .get(passport.authenticate(), (...params) => AuthorsController.show(...params))
-    .put(passport.authenticate(), (...params) => AuthorsController.update(...params))
-    .delete(passport.authenticate(), (...params) => AuthorsController.remove(...params));
+    .get((...params) => AuthorsController.show(...params))
+    .put((...params) => AuthorsController.update(...params))
+    .delete((...params) => AuthorsController.remove(...params));
+
+  router
+    .route('/tag')
+    .get((...params) => TagCtrl.getAllTags(...params))
+    .post((...params) => TagCtrl.createTag(...params));
+
+  router
+    .route('/book')
+    .get((...params) => BooksController.getAllBooks(...params))
+    .post((...params) => BooksController.createBook(...params));
+
+  router
+    .route('/book/tag/:tagId')
+    .post((...params) =>BooksController.CreateBookAndAddToTag(...params));
+
+  router
+    .route('/tag/book/:bookId')
+    .post((...params) =>TagCtrl.CreateTagAndAddToBook(...params));
 
   app.use('/api', router);
 };

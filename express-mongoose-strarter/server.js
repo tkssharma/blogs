@@ -22,7 +22,7 @@ require('./server/routes')(app);
 app.use(((err, req, res, next) => {
   if (err.name === 'ValidationError') {
     const msg = Object.keys(err.errors).map(field => err.errors[field].message);
-    return next(new AppError(msg[0], 400));
+    return next(new Error(msg[0], 400));
   }
   return next(err);
 }));

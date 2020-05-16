@@ -6,7 +6,7 @@ const AuthorsController = {
   	res.send(authors);
   },
   async store(req, res){
-  	
+
   },
   async show(req, res){
   	const author = await Author.findById(req.params.id);
