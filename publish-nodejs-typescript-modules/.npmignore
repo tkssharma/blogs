@@ -1,0 +1,17 @@
+/.idea
+/Dockerfile
+/docker/
+/docker-compose.yml
+/docker-compose.override.yml
+/.dockerignore
+/coverage
+.nyc_output
+/test
+#linters
+.jscsrc
+.jshintrc
+.eslintrc*
+
+#editor settings
+.idea
+.editorconfig
