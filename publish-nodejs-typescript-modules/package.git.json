@@ -1,7 +1,7 @@
 {
   "name": "@tkssharma/test-package",
   "types": "lib/index.d.ts",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "test-package",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -20,9 +20,8 @@
     "typescript",
     "package"
   ],
-  "author": "tkssharma",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "url": "git@github.com:tkssharma/test-package.git"
