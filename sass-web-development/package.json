@@ -1,0 +1,31 @@
+{
+  "name": "scss-base",
+  "version": "1.4.0",
+  "description": "A collection of SCSS styles and mixins to provide a clean base.",
+  "main": "main.scss",
+  "keywords": [
+    "SCSS",
+    "base",
+    "styles",
+    "clean",
+    "base"
+  ],
+  "author": "Matthew Ross <root@matthewross.me> (https://matthewross.me)",
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-scss-lint": "^0.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiswa/scss-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kiswa/scss-base/issues"
+  },
+  "homepage": "https://github.com/kiswa/scss-base#readme"
+}

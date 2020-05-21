@@ -1,0 +1,18 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+::selection {
+    background: $color-primary;
+}
+
+.hidden {
+    display: none;
+}
+

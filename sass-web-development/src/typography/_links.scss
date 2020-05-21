@@ -1,0 +1,26 @@
+a {
+    // Black pixel
+    background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==);
+    background-position: left 1em;
+    background-repeat: repeat-x;
+    color: $color-text;
+    text-decoration: none;
+    text-shadow: -1px -1px 0 $white,
+                  1px -1px 0 $white,
+                 -1px  1px 0 $white,
+                  1px  1px 0 $white;
+    transition: all .25s;
+
+    &:hover,
+    &:active {
+        // Transparent pixel
+        background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+    }
+
+    &.btn {
+        background-image: none;
+        border-radius: 3px;
+        outline: 0;
+        text-shadow: none;
+    }
+}

@@ -1,0 +1,10 @@
+@import url($font-url);
+
+html {
+    background-color: $color-background;
+    color: $color-text;
+    font-family: $font-name, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
