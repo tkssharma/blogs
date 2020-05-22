@@ -1,0 +1,39 @@
+{
+  "name": "graphql-apollo-server-example",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sample Apollo server",
+  "scripts": {
+    "start": "babel-node app.js"
+  },
+  "author": "Theo Gravity",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-export-extensions"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "cors": "2.8.3",
+    "express": "4.15.3",
+    "graphql": "0.10.3",
+    "graphql-server-express": "0.9.0",
+    "graphql-tools": "1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-env": "^1.5.2"
+  }
+}

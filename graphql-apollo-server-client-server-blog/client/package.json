@@ -1,0 +1,28 @@
+{
+  "name": "graphql-apollo-client-example",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sample Apollo client",
+  "main": "index.js",
+  "scripts": {
+    "start": "PORT=3001 react-scripts start"
+  },
+  "author": "Theo Gravity",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "1.5.0",
+    "apollo-link": "^1.2.14",
+    "apollo-link-http": "^1.5.17",
+    "graphql-tag": "2.4.2",
+    "prop-types": "15.5.10",
+    "react": "15.6.1",
+    "react-apollo": "1.4.2",
+    "react-dom": "15.6.1",
+    "react-router-dom": "4.1.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  }
+}
