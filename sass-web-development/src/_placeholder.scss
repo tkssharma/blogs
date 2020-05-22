@@ -1,0 +1,57 @@
+@import './mixins';
+@import './variable';
+
+%h1 {
+  @include media(null, $bp-medium) {
+    @include font(32, 400);
+    line-height: 37.75px;
+  }
+
+  @include font(42, 400);
+  font-family: $font-roboto;
+  line-height: 32px;
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+%h2 {
+  @include font(32, 400);
+
+  @include media(null, $bp-medium) {
+    @include font(28, 400);
+  }
+}
+
+%h3 {
+  @include font(24, 400);
+  font-family: $font-roboto;
+  line-height: 24px;
+
+  @include media(null, $bp-medium) {
+    @include font(22, 400);
+  }
+}
+
+%h4 {
+  @include font(18, 400);
+  font-family: $font-roboto;
+  line-height: 24px;
+
+  @include media(null, $bp-medium) {
+    @include font(16, 400);
+  }
+}
+
+%h5 {
+  @include media(null, $bp-medium) {
+    @include font(16, 400);
+    font-family: $font-roboto;
+    line-height: 20px;
+  }
+}
+
+%h5 {
+  @include font(16, 400);
+  font-family: $font-roboto;
+  line-height: 16px;
+}

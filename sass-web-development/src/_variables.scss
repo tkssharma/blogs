@@ -19,3 +19,34 @@ $font-name: 'Droid Sans' !default;
 $font-name-mono: 'Droid Sans Mono' !default;
 
 $white: #fff;
+
+// Breakpoints
+$bp-small: 480px;
+$bp-xsmall: 566px;
+$bp-smedium: 736px;
+$bp-medium: 767px;
+$bp-xmedium: 990px;
+$bp-large: 1024px;
+$bp-xxlarge: 1139px;
+$bp-xlarge: 1440px;
+$bp-maxwidth: 1440px;
+$base-size: 16;
+$base-font-size: 16;
+$line-height: 1.3;
+$brand-success: #149B5F !default;
+$brand-info: #FFC832 !default;
+$brand-warning: #f0ad4e !default;
+$brand-danger: #d9534f !default;
+
+$brand-magenta: #EB3C96;
+$brand-blue: #0F69AF;
+$brand-vibrant-green: #A5CD50;
+$brand-red: #E61E50;
+$brand-yellow: #FFC832;
+$brand-green: #149B5F;
+$brand-black: #1B1B25;
+$brand-grey: #F8F8FC;
+$brand-dark-gray: #dadadd;
+$brand-white: #FFFFFF;
+$tooltip-bg: #5c2d91;
+$brand-border: #e9e9ed;
