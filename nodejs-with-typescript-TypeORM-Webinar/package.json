@@ -64,7 +64,6 @@
     "express": "^4.17.1",
     "express-winston": "^4.0.2",
     "helmet": "^3.21.2",
-    "inversify": "^5.0.1",
     "lodash": "^4.17.15",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.1",

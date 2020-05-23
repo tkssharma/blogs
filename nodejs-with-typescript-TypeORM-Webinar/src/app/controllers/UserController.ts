@@ -1,16 +1,11 @@
 
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-import SERVICE_IDENTIFIER from '../constants';
-import { IUserRepository } from '../repositories/UserRepository';
-import container from '../container';
 import { UserService } from '../services/UserService';
 import Template from '../global/response';
 import { ServerException } from '../../lib/custom-errors';
 import APIError from '../global/response/apierror';
-let repo = container.get<IUserRepository>(SERVICE_IDENTIFIER.IUserRepository);
-let service = new UserService(repo);
-
+const service = new UserService();
 class UserController {
   public static listAll = (req: Request, res: Response, next: any) => {
     service.get().then(users => {

@@ -9,6 +9,7 @@
       "module": "commonjs",
       "outDir": "./dist",
       "strict": true,
+      "skipLibCheck": true,
       "sourceMap": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,

@@ -23,7 +23,6 @@ class DatabaseService {
       username: dbConfig.username,
       password: dbConfig.password,
       database: dbConfig.database,
-      name: 'default',
       entities: [
         User,
       ],
