@@ -2,7 +2,7 @@ import UserType from './user/user.type'
 import ItemType from './item/item.type'
 
 import RootQuery from './root-query/root-query.type'
-import RootMutation from './root-mutation/root-mutation.type.js.js'
+import RootMutation from './root-mutation/root-mutation.type'
 
 import resolvers from './resolvers'
 

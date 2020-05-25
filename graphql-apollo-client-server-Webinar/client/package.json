@@ -5,7 +5,7 @@
   "description": "Sample Apollo client",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=3001 react-scripts start"
+    "start": "react-scripts start"
   },
   "author": "Theo Gravity",
   "license": "MIT",
