@@ -1,0 +1,9 @@
+<h1>Angular Environment Variables Demo</h1>
+<p>EnvService contains the following values:</p>
+<pre>{{ env | json }}</pre>
+<p>You can use <code>env.js</code> to control your environment variables without the need for a rebuild, as explained in <a href="https://jvandemo.com/how-to-use-environment-variables-to-configure-your-angular-application-without-a-rebuild/">How to use environment variables to configure your Angular application without a rebuild</a>.</p>
+<p>When you build your app using <code>ng build --prod</code>, you can now either:</p>
+<ul>
+  <li>Update the environment values in <code>env.js</code> to configure your Angular application without rebuilding it.</li>
+  <li>Remove <code>env.js</code> in the <code>dist</code> directory to fall back to the default values in <code>EnvService</code>.</li>
+</ul>
