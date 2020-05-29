@@ -1,0 +1,35 @@
+blockquote {
+    @include clearfix;
+
+    border-left: 7px solid $color-primary;
+    font-size: .9em;
+    margin-left: 0;
+    padding-left: 1.5em;
+
+    cite {
+        float: right;
+        font-size: 1.05em;
+    }
+}
+
+dt {
+    font-size: .95em;
+    font-weight: 700;
+}
+
+dd {
+    margin-bottom: .5em;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid $color-border;
+}
+
+abbr {
+    cursor: help;
+}
+
+mark {
+    background-color: $color-mark;
+}

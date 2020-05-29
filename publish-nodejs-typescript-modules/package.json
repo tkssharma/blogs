@@ -20,9 +20,8 @@
     "typescript",
     "package"
   ],
-  "author": "tkssharma",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "url": "git@github.com:tkssharma/test-package.git"

@@ -1,0 +1,21 @@
+figure {
+    @include shadow-low;
+
+    border: 1px solid $color-border;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 0;
+    padding: 1em;
+    padding-bottom: .7em;
+
+    figcaption {
+        font-size: .95em;
+        font-weight: 700;
+    }
+}
+
+iframe {
+    border: 1px solid $color-border;
+    border-radius: 3px;
+    width: 100%;
+}

@@ -1,0 +1,76 @@
+[type="reset"],
+[type="button"],
+[type="submit"],
+button,
+.btn {
+    background-color: $color-primary;
+    border: 1px solid darken($color-primary, 15%);
+    color: $color-text-button;
+    cursor: pointer;
+    display: inline-block;
+    line-height: .9em;
+    padding: 10px;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+        border-color: darken($color-primary, 20%);
+    }
+
+    &:active {
+        background-color: darken($color-primary, 20%);
+        border-color: darken($color-primary, 30%);
+    }
+
+    &:disabled {
+        background-color: lighten($color-primary, 10%);
+        color: lighten($color-text, 10%);
+        cursor: default;
+    }
+
+    &:focus {
+        border: 1px solid darken($color-primary, 30%);
+    }
+
+    &.accent {
+        background-color: $color-secondary;
+        border-color: darken($color-secondary, 15%);
+
+        &:hover {
+            background-color: darken($color-secondary, 10%);
+            border-color: darken($color-secondary, 20%);
+        }
+
+        &:active {
+            background-color: darken($color-secondary, 20%);
+            border-color: darken($color-secondary, 30%);
+        }
+
+        &:disabled {
+            background-color: lighten($color-secondary, 10%);
+            border-color: $color-secondary;
+            color: lighten($color-text, 10%);
+        }
+
+        &:focus {
+            border: 1px solid darken($color-secondary, 30%);
+        }
+    }
+
+    &.flat {
+        background-color: $color-background;
+        border-color: darken($color-background, 15%);
+
+        &:hover {
+            border-color: darken($color-background, 30%);
+        }
+
+        &:disabled {
+            border-color: darken($color-background, 15%);
+            color: lighten($color-text, 10%);
+        }
+
+        &:focus {
+            border: 1px solid darken($color-background, 40%);
+        }
+    }
+}

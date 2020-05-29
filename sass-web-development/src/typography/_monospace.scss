@@ -1,0 +1,34 @@
+kbd,
+code,
+pre,
+samp {
+    font-family: $font-name-mono, monospace;
+    font-size: .9em;
+}
+
+kbd {
+    border: 1px solid $color-border;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2),
+                0 0 0 2px $color-background inset;
+    display: inline-block;
+    padding: 0 5px;
+    text-shadow: 0 1px 0 $color-background;
+
+    &[title] {
+        cursor: help;
+    }
+}
+
+pre {
+    code {
+        display: block;
+    }
+}
+
+code {
+    background-color: lighten($color-border, 27%);
+    border: 1px solid $color-border;
+    border-radius: 3px;
+    padding: 1px 5px;
+}

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv="cleartype" content="on">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/scss-base.css">
+        <style>
+            body {
+                background-color: #fefefe;
+            }
+            .wrapper {
+                background-color: #fff;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
+                            0 1px 5px 0 rgba(0, 0, 0, .12),
+                            0 3px 1px -2px rgba(0, 0, 0, .2);
+                margin: 1em auto;
+                margin-top: 60px;
+                max-width: 800px;
+                padding: 1em;
+            }
+            .half {
+                float: left;
+                width: 49%;
+            }
+            .clearfix::after {
+                clear: both;
+                content: '';
+                display: block;
+            }
+            #mixins {
+                margin-bottom: 1.5em;
+            }
+            .shadow-low, .shadow-mid, .shadow-high, .shadow-float {
+                float: left;
+                margin-right: 2%;
+                padding: 1em;
+                width: 23.5%;
+            }
+            .shadow-low {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
+                            0 1px 5px 0 rgba(0, 0, 0, .12),
+                            0 3px 1px -2px rgba(0, 0, 0, .2);
+            }
+            .shadow-mid {
+                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .15),
+                            0 2px 10px 0 rgba(0, 0, 0, .12);
+            }
+            .shadow-high {
+                box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .15),
+                            0 4px 14px 0 rgba(0, 0, 0, .12);
+            }
+            .shadow-float {
+                box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .22),
+                            0 17px 20px 0 rgba(0, 0, 0, .12);
+                margin-right: 0;
+            }
+            nav {
+                background-color: #333;
+                color: #7fd4ff;
+                height: 50px;
+                left: 0;
+                position: fixed;
+                right: 0;
+                top: 0;
+                z-index: 1000;
+            }
+            nav ul {
+                background-color: #333;
+                list-style: none;
+                padding: 0;
+            }
+            nav ul li {
+                cursor: pointer;
+                margin: auto 1em;
+                position: relative;
+            }
+            nav ul li:hover ul {
+                display: block;
+            }
+            nav ul li ul {
+                display: none;
+                position: absolute;
+            }
+            nav ul li ul li {
+                padding: 1em;
+            }
+            nav li {
+                float: left;
+            }
+            nav a {
+                background-image: none;
+                color: #7fd4ff;
+                display: block;
+                text-shadow: none;
+            }
+            nav a:hover {
+                color: #86deb7;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="#intro">Intro</a></li>
+                <li><a href="#mixins">Mixins</a></li>
+                <li>Text
+                    <ul>
+                        <li><a href="#headers">Headers</a></li>
+                        <li><a href="#blockquotes">Blockquotes</a></li>
+                        <li><a href="#lists">Lists</a></li>
+                        <li><a href="#tables">Tables</a></li>
+                        <li><a href="#code">Code</a></li>
+                        <li><a href="#other">Other</a></li>
+                    </ul>
+                </li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#forms">Forms</a>
+                    <ul>
+                        <li><a href="#inputs">Inputs</a></li>
+                        <li><a href="#selections">Selections</a></li>
+                        <li><a href="#textareas">Textareas</a></li>
+                        <li><a href="#html5">HTML5 Inputs</a></li>
+                    </ul>
+                </li>
+                <li><a href="#embedded">Embedded</a>
+                    <ul>
+                        <li><a href="#images">Images</a></li>
+                        <li><a href="#iframes">Iframes</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="wrapper">
+            <section id="intro">
+                <h1>scss-base <span>A clean style base</span></h1>
+                <p>
+                    This is a selection of styles that provide a clean default look for SCSS projects.
+                    The fonts used are <a href="https://www.google.com/fonts/specimen/Droid+Sans">Droid Sans</a>
+                    and <a href="https://www.google.com/fonts/specimen/Droid+Sans+Mono">Droid Sans Mono</a>.
+                    This also uses <a href="http://necolas.github.io/normalize.css/">Normalize.css</a> as a base style 'reset'.
+                </p>
+                <p>
+                    Everything on this demo page is styled by <code>scss-base</code>, except for a single wrapper div to center
+                    the content and the navigation above.
+                </p>
+                <p>There is no grid system, or any other kind of layout in <code>scss-base</code>. It is purely a set of styles.</p>
+                <p>In keeping with this, all form inputs are 100% width, so they can be handled by their parent elements.</p>
+                <p>
+                    All colors are set by a few variables, which can be overriden. The two main colors used are defined by the
+                    <code style="background-color: #7fd4ff;">$color-primary</code> and
+                    <code style="background-color: #86deb7;">$color-secondary</code>
+                    variables. The backgrounds of those code sections are those default colors. If you select text on the page,
+                    you will see it uses the primary color for the highlight.
+                </p>
+                <p>Each section is separated by an <code>&lt;hr&gt;</code> element to demonstrate their styling.</p>
+            </section>
+            <hr>
+
+            <section id="mixins" class="clearfix">
+                <h2>Mixins</h2>
+                <p>There is a <code>clearfix</code> mixin using the standard clearfix in case you need it.</p>
+                <p>Since I like using them, <code>scss-base</code> also includes some mixins for creating shadows. This is what they look like when used:</p>
+                <div class="shadow-low"><code>shadow-low</code></div>
+                <div class="shadow-mid"><code>shadow-mid</code></div>
+                <div class="shadow-high"><code>shadow-high</code></div>
+                <div class="shadow-float"><code>shadow-float</code></div>
+            </section>
+            <hr>
+
+            <section id="headers">
+                <h2>Headers</h2>
+                <p>All headers allow for the use of sub-titles by including text within a <code>&lt;span&gt;</code> element.</p>
+                <h1>Header Level 1 <span>Sub-Title 1</span></h1>
+                <h2>Header Level 2 <span>Sub-Title 2</span></h2>
+                <h3>Header Level 3 <span>Sub-Title 3</span></h3>
+                <h4>Header Level 4 <span>Sub-Title 4</span></h4>
+                <h5>Header Level 5 <span>Sub-Title 5</span></h5>
+                <h6>Header Level 6 <span>Sub-Title 6</span></h6>
+            </section>
+            <hr>
+
+            <section id="blockquotes">
+                <h2>Blockquotes</h2>
+                <p>
+                    Blockquotes are given a left side border of the primary color to stand out from surrouding text.
+                    They also have a slightly smaller font size.
+                </p>
+                <blockquote>
+                    <p>A block quotation, or blockquote, is a quotation which is too long to be included inline.</p>
+                    <p>It is usually indented to distinguish it from surrounding text, and may use a different typeface or size.</p>
+                    <cite><a href="#blockquotes">Typical Internet Dude</a></cite>
+                </blockquote>
+            </section>
+            <hr>
+
+            <section id="lists" class="clearfix">
+                <h2>Lists</h2>
+                <p>Definition lists have been minimally styled.</p>
+
+                <h3>Definition List</h3>
+                <dl>
+                    <dt>Definition List Title</dt>
+                    <dd>A definition list division looks like this.</dd>
+                </dl>
+
+                <p>Ordered and unordered lists have not been modified from their defaults (beyond what Normalize.css does).</p>
+                <div class="half">
+                    <h4>Ordered List</h4>
+                    <ol>
+                        <li>Order list item</li>
+                        <li>Order list item</li>
+                        <li>Order list item</li>
+                    </ol>
+                </div>
+
+                <div class="half">
+                    <h4>Unordered List</h4>
+                    <ul>
+                        <li>Unordered list item</li>
+                        <li>Unordered list item</li>
+                        <li>Unordered list item</li>
+                    </ul>
+                </div>
+            </section>
+            <hr>
+
+            <section id="tables">
+                <h2>Tables</h2>
+                <p>Tables span the full width of their container and are fully styled.</p>
+                <table>
+                    <caption>Table Caption</caption>
+                    <thead>
+                        <th>First Column Heading</th>
+                        <th>Second Column Heading</th>
+                        <th>Third Column Heading</th>
+                        <th>Fourth Column Heading</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Row 1 Cell 1</td>
+                            <td>Row 1 Cell 2</td>
+                            <td>Row 1 Cell 3</td>
+                            <td>Row 1 Cell 4</td>
+                        </tr>
+                        <tr>
+                            <td>Row 2 Cell 1</td>
+                            <td>Row 2 Cell 2</td>
+                            <td>Row 2 Cell 3</td>
+                            <td>Row 2 Cell 4</td>
+                        </tr>
+                        <tr>
+                            <td>Row 3 Cell 1</td>
+                            <td>Row 3 Cell 2</td>
+                            <td>Row 3 Cell 3</td>
+                            <td>Row 3 Cell 4</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <th>First Column Footer</th>
+                        <th>Second Column Footer</th>
+                        <th>Third Column Footer</th>
+                        <th>Fourth Column Footer</th>
+                    </tfoot>
+                </table>
+                <p>You can also apply the <code>alternating</code> class to a table for alternating rows.</p>
+                <table class="alternating">
+                    <caption>Alternating Rows</caption>
+                    <thead>
+                        <th>First Column Heading</th>
+                        <th>Second Column Heading</th>
+                        <th>Third Column Heading</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Row 1 Cell 1</td>
+                            <td>Row 1 Cell 2</td>
+                            <td>Row 1 Cell 3</td>
+                        </tr>
+                        <tr>
+                            <td>Row 2 Cell 1</td>
+                            <td>Row 2 Cell 2</td>
+                            <td>Row 2 Cell 3</td>
+                        </tr>
+                        <tr>
+                            <td>Row 3 Cell 1</td>
+                            <td>Row 3 Cell 2</td>
+                            <td>Row 3 Cell 3</td>
+                        </tr>
+                        <tr>
+                            <td>Row 4 Cell 1</td>
+                            <td>Row 4 Cell 2</td>
+                            <td>Row 4 Cell 3</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <th>First Column Footer</th>
+                        <th>Second Column Footer</th>
+                        <th>Third Column Footer</th>
+                    </tfoot>
+                </table>
+            </section>
+            <hr>
+
+            <section id="code">
+                <h2>Code</h2>
+                <p>
+                    If you need to show keyboard commands the <code>&lt;kbd&gt;</code> element is styled to stand out.
+                    You may also include a <code>title</code> attribute to spell out a key's longer name. For example,
+                    pressing <kbd title="Control">Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> is usually "Save As" (hover
+                    over "Ctrl"!).
+                </p>
+                <p>All the sections you've seen <code>that look like this</code> are how inline code is styled.</p>
+                <p>
+                    You can also provide sample program output with the <code>&lt;samp&gt;</code> element,
+                    <samp>which looks like this and is an inline element</samp>.
+                </p>
+                <p>
+                    Sometimes you need to show off a few lines of code. Using the nested elements
+                    <code>&lt;pre&gt;&lt;code&gt;</code> produces this:
+                    <pre><code>pre {
+    code {
+        display: block;
+    }
+}</code></pre>
+                </p>
+                <p>
+                    Using the <code>&lt;pre&gt;</code> element alone produces a monospace block of text:
+                    <pre>~ ! @ # $ % ^ & * ( ) _ +
+` 1 2 3 4 5 6 7 8 9 0 - =
+Q W E R T Y U I O P { } |
+q w e r t y u i o p [ ] \</pre>
+                </p>
+            </section>
+            <hr>
+
+            <section id="other">
+                <h2>Other Text</h2>
+                <p>
+                    This is all the inline text, some of which you've seen by now. It's worth mentioning that links
+                    have been styled to use a background image and a text shadow to <a href="#other">provide a pleasing underline</a>
+                    that does not obscure the text.
+                </p>
+                <p>
+                    Important text <strong>should use the <code>&lt;strong&gt;</code> element</strong>. You can also
+                    <em>emphasize important text with the <code>&lt;em&gt;</code> element</em>.
+                    The same effect can be had stylistically, by using <b>the <code>&lt;b&gt;</code> element</b>
+                    or the <i><code>&lt;i&gt;</code> element</i>. <u>Underlining</u> with the <code>&lt;u&gt;</code>
+                    element does not behave the same as links. Don't forget <s><code>&lt;s&gt;</code> element for strikethrough</s>.
+                </p>
+                <p>
+                    The same styles can also be achieved with <del>the <code>&lt;del&gt;</code> element</del> or
+                    <ins>the <code>&lt;ins&gt;</code> element</ins>, though these have different semantic meaning,
+                    much like the difference between strong and b.
+                </p>
+                <p>There are also superscripts if you're into math<sup>2</sup>, and subscripts for you scientists (H<sub>2</sub>O).</p>
+                <p><small>When you need some fine print, just use the <code>&lt;small&gt;</code> element.</small></p>
+                <p>Abbreviations are styled to indicate there is something to see: <abbr title="HyperText Markup Language">HTML</abbr></p>
+                <p>
+                    <q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">The <code>&lt;q&gt;</code> element is for a short
+                    inline quotation.</q> The <cite><code>&lt;cite&gt;</code> element</cite> is used for a citation
+                    and <cite><a href="#other">can embed a link</a></cite>. To define something, <dfn>use the <code>&lt;dfn&gt;</code>
+                    element</dfn>. Visually, it ends up the same as <var>the <code>&lt;var&gt;</code> element</var>.
+                </p>
+                <p>
+                    If you want to highlight some text, just use <mark>the <code>&lt;mark&gt;</code> element for that</mark> as it has been styled
+                    to look like highlighter yellow.
+                </p>
+            </section>
+            <hr>
+
+            <section id="buttons">
+                <h2>Buttons</h2>
+                <p>
+                    By default, buttons use the primary color for their background and borders.
+                </p>
+                <p>
+                    <input type="submit" value="Input Submit">
+                    <input type="button" value="Input Button">
+                    <button>Button</button>
+                    <input type="reset" value="Input Reset">
+                    <input type="button" value="Disabled" disabled>
+                    <a class="btn" href="#buttons">Link Button</a>
+                </p>
+
+                <p>Adding the class <code>accent</code> will use the secondary color instead.</p>
+                <p>
+                    <input class="accent" type="submit" value="Input Submit">
+                    <input class="accent" type="button" value="Input Button">
+                    <button class="accent">Button</button>
+                    <input class="accent" type="reset" value="Input Reset">
+                    <input class="accent" type="button" value="Disabled" disabled>
+                    <a class="btn accent" href="#buttons">Link Button</a>
+                </p>
+
+                <p>Alternately, you can use the <code>flat</code> class to remove colors and match form inputs.</p>
+                <p>
+                    <input class="flat" type="submit" value="Input Submit">
+                    <input class="flat" type="button" value="Input Button">
+                    <button class="flat">Button</button>
+                    <input class="flat" type="reset" value="Input Reset">
+                    <input class="flat" type="button" value="Disabled" disabled>
+                    <a class="btn flat" href="#buttons">Link Button</a>
+                </p>
+
+                <p>The last button in each example above is a simple link with a <code>btn</code> class applied.</p>
+            </section>
+            <hr>
+
+            <section id="forms">
+                <h2>Forms</h2>
+                <p>
+                    The <code>&lt;form&gt;</code> element provides a card-like look to stand out from the surrounding page.
+                    The <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements are also styled for a cohesive look.
+                </p>
+                <p>
+                    Note that inputs are styled to use borders and highlights for each state, and not use the browser's default
+                    input selection style. Also, labels use a pointer cursor to indicate they can be clicked to select an input.
+                </p>
+                <form>
+                    <fieldset id="inputs">
+                        <legend>Inputs</legend>
+
+                        <label for="plain_text">Plain Text</label>
+                        <input id="plain_text" type="text" placeholder="Plain text input"></input>
+
+                        <label for="pword">Password</label>
+                        <input id="pword" type="password" placeholder="Enter your password"></input>
+
+                        <label for="web_addr">Web Address</label>
+                        <input id="web_addr" type="url" placeholder="https://example.com"></input>
+
+                        <label for="email">Email Address</label>
+                        <input id="email" type="email" placeholder="you@example.com"></input>
+
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" type="tel" placeholder="(555) 867-5309"></input>
+
+                        <label for="search">Search</label>
+                        <input id="search" type="search" placeholder="Enter Search Term..."></input>
+                    </fieldset>
+
+                    <fieldset id="selections">
+                        <legend>Selections</legend>
+
+                        <label for="select">Select</label>
+                        <select id="select">
+                            <optgroup label="Option Group">
+                                <option>Option One</option>
+                                <option>Option Two</option>
+                                <option>Option Three</option>
+                            </optgroup>
+                        </select>
+
+                        <p>
+                            <p>Checkboxes</p>
+                            <label>
+                                <input type="checkbox" name="checks" checked>
+                                Choice A
+                            </label>
+                            <label>
+                                <input type="checkbox" name="checks">
+                                Choice B
+                            </label>
+                            <label>
+                                <input type="checkbox" name="checks">
+                                Choice C
+                            </label>
+                        </p>
+
+                        <p>
+                            <p>Radio Buttons</p>
+                            <label>
+                                <input type="radio" name="radios" checked>
+                                Option 1
+                            </label>
+                            <label>
+                                <input type="radio" name="radios">
+                                Option 2
+                            </label>
+                            <label>
+                                <input type="radio" name="radios">
+                                Option 3
+                            </label>
+                        </p>
+
+                        <h4>Customized Checkbox/Radio Inputs</h4>
+                        <p>
+                            The radio buttons and checkboxes use the primary and accent colors.
+                            The toggle colors are defined separately.
+                        </p>
+
+                        <p>Toggle Switches <small>(really just fancy checkboxes)</small></p>
+
+                        <label>WiFi <input type="checkbox" class="hidden" checked>
+                            <span class="toggle"></span>
+                        </label>
+                        &nbsp;&nbsp;After the label... <br>
+
+                        <label><input type="checkbox" class="hidden">
+                            <span class="toggle"></span> Bluetooth
+                        </label>
+                        &nbsp;&nbsp;... or before it.
+
+                        <p>Usage:</p>
+                        <pre><code>&lt;label>
+    Your Text Here
+    &lt;input type="checkbox" class="hidden">
+    &lt;span class="toggle">&lt;/span>
+    And/Or Text Here
+&lt;/label></code></pre>
+
+                        <p>Checkboxes</p>
+
+                        <label>
+                            <input class="custom" type="checkbox" checked>
+                            <span class="custom-target"></span>
+                            Choice A
+                        </label>
+
+                        <label>
+                            <input class="custom" type="checkbox">
+                            <span class="custom-target"></span>
+                            Choice B
+                        </label>
+
+                        <label>
+                            <input class="custom" type="checkbox" disabled>
+                            <span class="custom-target"></span>
+                            Choice C
+                        </label>
+
+                        <label>
+                            <input class="custom" type="checkbox" checked disabled>
+                            <span class="custom-target"></span>
+                            Choice D
+                        </label>
+
+                        <p>Usage:</p>
+                        <pre><code>&lt;label>
+    Your Text Here
+    &lt;input type="checkbox" class="custom">
+    &lt;span class="custom-target">&lt;/span>
+    And/Or Text Here
+&lt;/label></code></pre>
+
+                        <p>Radio Buttons</p>
+
+                        <label>
+                            <input type="radio" name="radiocustom1" class="custom" checked>
+                            <span class="custom-target"></span>
+                            Option 1
+                        </label>
+
+                        <label>
+                            <input type="radio" name="radiocustom1" class="custom">
+                            <span class="custom-target"></span>
+                            Option 2
+                        </label>
+
+                        <label>
+                            <input type="radio" name="radiocustom2" class="custom" checked disabled>
+                            <span class="custom-target"></span>
+                            Option 1
+                        </label>
+
+                        <label>
+                            <input type="radio" name="radiocustom2" class="custom" disabled>
+                            <span class="custom-target"></span>
+                            Option 2
+                        </label>
+
+                        <p>Usage:</p>
+                        <pre><code>&lt;label>
+    Your Text Here
+    &lt;input type="radio" class="custom">
+    &lt;span class="custom-target">&lt;/span>
+    And/Or Text Here
+&lt;/label></code></pre>
+
+                    </fieldset>
+
+                    <fieldset id="textareas">
+                        <legend>Textareas</legend>
+
+                        <label for="text_area">Textarea</label>
+                        <textarea id="text_area" rows="7" placeholder="Enter your message..."></textarea>
+                    </fieldset>
+
+                    <fieldset id="html5">
+                        <legend>HTML5 Inputs</legend>
+                        <p>Only the <code>&lt;color&gt;</code> and <code>&lt;range&gt;</code> elements have been given any additional styles.</p>
+
+                        <label for="color">Color</label>
+                        <input id="color" type="color" value="#000000">
+
+                        <label for="range">Range</label>
+                        <input id="range" type="range" value="20">
+
+                        <label for="number">Number</label>
+                        <input id="number" type="number" placeholder="Numbers Only"></input>
+
+                        <label for="date">Date</label>
+                        <input id="date" type="date" value="1970-01-01">
+
+                        <label for="month">Month</label>
+                        <input id="month" type="month" value="1970-01">
+
+                        <label for="week">Week</label>
+                        <input id="week" type="week" value="1970-W01">
+
+                        <label for="datetime">Datetime</label>
+                        <input id="datetime" type="datetime" value="1970-01-01T00:00:00Z">
+
+                        <label for="datetime-local">Datetime Local</label>
+                        <input id="datetime-local" type="datetime-local" value="1970-01-01T00:00:00">
+                    </fieldset>
+                </form>
+            </section>
+            <hr>
+
+            <section id="embedded">
+                <h2>Embedded Elements</h2>
+                <p>Only images and iframes have been styled. Other embedded elements have been left alone for now.</p>
+
+                <h3 id="images">Images</h3>
+                <p>Images are left pretty much alone in their default state.</p>
+                <p><img src="http://placehold.it/350x200"></img></p>
+                <p>When an image is inside a <code>&lt;figure&gt;</code> element, it is given a border and shadow.</p>
+                <p><figure><img src="http://placehold.it/350x200"></img></figure></p>
+                <p>And when there is a <code>&lt;figcaption&gt;</code> element with it, it is styled like so:</p>
+                <p><figure>
+                    <img src="http://placehold.it/350x200"></img>
+                    <figcaption>This is the caption for the image</figcaption>
+                </figure></p>
+
+                <h3 id="iframes">Iframes</h3>
+                <p>The iframe element has some basic styling to make it stand out.</p>
+                <iframe src="index.html" height="300"></iframe>
+            </section>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,17 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    margin-bottom: .6em;
+    margin-top: 1em;
+
+    span {
+        color: lighten($color-text, 25%);
+        font-size: .8em;
+        font-weight: 400;
+        padding-left: .4em;
+    }
+}
