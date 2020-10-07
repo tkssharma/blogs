@@ -1,1 +1,24 @@
 node_modules/
+node_modules/
+# Node.js
+node_modules
+npm-debug.log
+dist
+.DS_Store
+
+# Tests
+coverage
+.nyc_output
+
+# Docker
+docker-compose.override.yml
+.env
+
+# IDEs
+.vscode/*
+.idea
+
+# Misc
+.gitkeep
+dist
+build
