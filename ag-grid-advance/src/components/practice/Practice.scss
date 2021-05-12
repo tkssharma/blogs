@@ -1,0 +1,16 @@
+@import '../../../node_modules/ag-grid-community/src/styles/ag-grid.scss';
+@import '../../../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin';
+
+.practice-page {
+  width: 100%;
+  height: 100%;
+}
+.ag-grid-table-section {
+	padding: 20px;
+}
+
+.ag-theme-alpine {
+  @include ag-theme-alpine((
+    //odd-row-background-color: #BFC8DC
+  ));
+}
