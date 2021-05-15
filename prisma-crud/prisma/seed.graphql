@@ -1,0 +1,11 @@
+mutation {
+	post1: createPost(
+		data: {
+			title: "Some great post"
+			content: "Some great content"
+			published: true
+		}
+	) {
+		id
+	}
+}
