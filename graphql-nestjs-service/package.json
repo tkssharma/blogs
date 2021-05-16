@@ -43,7 +43,7 @@
     "apollo-server-cache-memcached": "^0.6.5",
     "apollo-server-express": "^2.15.0",
     "cache-manager": "^3.3.0",
-    "class-transformer": "^0.2.3",
+    "class-transformer": "^0.3.1",
     "class-validator": "^0.9.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
