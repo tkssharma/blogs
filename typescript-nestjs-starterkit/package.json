@@ -58,7 +58,7 @@
     "socket.io-redis": "^5.2.0",
     "swagger-ui-express": "^4.1.4",
     "tslint-sonarts": "^1.9.0",
-    "typeorm": "^0.2.22",
+    "typeorm": "^0.2.25",
     "winston": "^3.2.1",
     "yamljs": "^0.3.0"
   },
