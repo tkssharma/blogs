@@ -1,0 +1,14 @@
+version: "3"
+services:
+  postgres:
+    environment:
+      - POSTGRES_USER=api
+      - POSTGRES_PASSWORD=development_pass
+      - POSTGRES_MULTIPLE_DATABASES="example-api","example-api-testing"
+    volumes:
+      - ./docker-utils:/docker-entrypoint-initdb.d
+      - api_data:/data/postgres
+    ports:
+      - 5434:5432
+volumes:
+  api_data: {}    
