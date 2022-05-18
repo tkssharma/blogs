@@ -1,0 +1,24 @@
+{
+  "name": "sveltekit-with-tailwind-jit",
+  "version": "0.0.1",
+  "scripts": {
+    "dev:only": "svelte-kit dev",
+    "build:only": "svelte-kit build",
+    "preview": "svelte-kit preview",
+    "tailwind:watch": "cross-env TAILWIND_MODE=watch cross-env NODE_ENV=development postcss src/styles/tailwind.css -o src/styles/tailwind-output.css -w",
+    "tailwind:build": "cross-env TAILWIND_MODE=build cross-env NODE_ENV=production  postcss src/styles/tailwind.css -o src/styles/tailwind-output.css",
+    "dev": "concurrently \"yarn run dev:only\" \"yarn run tailwind:watch\"",
+    "build": "yarn run tailwind:build && yarn run build:only"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^1.0.0-next.13",
+    "@sveltejs/kit": "next",
+    "autoprefixer": "^10.2.6",
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "postcss-cli": "^8.3.1",
+    "svelte": "^3.34.0",
+    "tailwindcss": "^2.2.2"
+  },
+  "type": "module"
+}
