@@ -1,0 +1,101 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  """
+  id of the user
+  """
+  userId: String!
+
+  """
+  Example field (placeholder)
+  """
+  exampleField: Int!
+
+  """
+  first name of the user
+  """
+  firstName: String!
+
+  """
+  last name of the user
+  """
+  lastName: String!
+
+  """
+  email of the user
+  """
+  email: String!
+
+  """
+  role of the user
+  """
+  role: String!
+}
+
+type Query {
+  users: [User!]!
+  user(userId: String!): User!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(userId: String!): User!
+}
+
+input CreateUserInput {
+  """
+  Example field (placeholder)
+  """
+  exampleField: Int!
+
+  """
+  first name of the user
+  """
+  firstName: String!
+
+  """
+  last name of the user
+  """
+  lastName: String!
+
+  """
+  email of the user
+  """
+  email: String!
+
+  """
+  role of the user
+  """
+  role: String!
+}
+
+input UpdateUserInput {
+  """
+  Example field (placeholder)
+  """
+  exampleField: Int
+
+  """
+  first name of the user
+  """
+  firstName: String
+
+  """
+  last name of the user
+  """
+  lastName: String
+
+  """
+  email of the user
+  """
+  email: String
+
+  """
+  role of the user
+  """
+  role: String
+  userId: String!
+}
