@@ -28,7 +28,7 @@
     "jsonwebtoken": "^8.5.1",
     "method-override": "^2.3.3",
     "mongoose": "^4.0.5",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.20",
     "passport": "^0.4.1"
   }
 }
