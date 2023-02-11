@@ -66,7 +66,7 @@
     "helmet": "^3.21.2",
     "lodash": "^4.17.15",
     "mysql2": "^2.1.0",
-    "nodemon": "^2.0.1",
+    "nodemon": "^2.0.20",
     "reflect-metadata": "^0.1.13",
     "strong-params": "^1.0.0",
     "tslint-sonarts": "^1.9.0",
