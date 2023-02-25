@@ -90,7 +90,7 @@
     "chai-spies": "^1.0.0",
     "concurrently": "^5.0.0",
     "istanbul": "^0.4.5",
-    "mocha": "^6.2.2",
+    "mocha": "^10.2.0",
     "nock": "^11.7.0",
     "nyc": "^14.1.1",
     "supertest": "^4.0.2",
