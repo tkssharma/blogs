@@ -1,0 +1,26 @@
+{
+  "name": "graphql-n-plus-one-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "set DEBUG=knex:query && npx nodemon src/index",
+    "db:update": "npx knex migrate:latest",
+    "db:seed": "npx knex seed:run"
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.10.0",
+    "dataloader": "^2.0.0",
+    "faker": "^4.1.0",
+    "graphql": "^14.6.0",
+    "knex": "^0.20.9",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
