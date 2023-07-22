@@ -57,7 +57,7 @@
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.14.0",
     "core-decorators": "^0.20.0",
     "date-fns": "^2.8.1",
     "dotenv": "^8.2.0",
